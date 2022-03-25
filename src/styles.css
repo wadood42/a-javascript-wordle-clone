@@ -114,3 +114,15 @@ nav {
 		height: 50px;
 	}
 }
+
+@media only screen and (min-width: 375px) {
+	.btn {
+		width: 26px;
+		height: 30px;
+		/* background-color: lightblue; */
+	}
+	.cell {
+		width: 40px;
+		height: 40px;
+	}
+}
