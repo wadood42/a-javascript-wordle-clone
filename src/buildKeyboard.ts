@@ -36,42 +36,57 @@ function keyboardRow(letters: string, isLast: boolean) {
 	let row = document.createElement("div");
 	row.className = "keyboard-row";
 
+	if (isLast) {
+		let btn = document.createElement("button");
+		btn.className = "btn";
+		btn.classList.add("enter");
+		btn.textContent = "Enter";
+		btn.addEventListener("click", (e) => {
+			handleKeyDown(e);
+		});
+		row.appendChild(btn);
+	}
+
 	for (let j = 0; j < letters.length; j++) {
 		let btn = document.createElement("button");
 		btn.className = "btn";
+
 		btn.textContent = letters[j];
+		btn.addEventListener("click", (e) => handleKeyDown(e));
 		row.appendChild(btn);
 	}
+
+	if (isLast) {
+		let btn = document.createElement("button");
+		btn.className = "btn";
+		btn.classList.add("delete");
+		// let span = document.createElement("span");
+		// span.className = "material-icons";
+		// span.textContent = "clear";
+		// btn.textContent = "";
+		// btn.appendChild(span);
+		btn.textContent = "delete";
+		btn.addEventListener("click", (e) => {
+			handleKeyDown(e);
+		});
+		row.appendChild(btn);
+	}
+
 	keyboard?.appendChild(row);
 }
 
-function handleKeyDown(e: KeyboardEvent) {
+function handleKeyDown(e: any) {
 	if (e.ctrlKey || e.metaKey || e.altKey) return;
-	console.log("handling keydow", e.key);
-
-	let letter = e.key.toLowerCase();
-	if (letter === "enter") {
-		console.log("handling enter");
-		if (currentAttempt.length < 5) {
-			return;
-		}
-		if (!wordList.includes(currentAttempt)) {
-			alert("Not in the list");
-			return;
-		}
-		history.push(currentAttempt);
-		currentAttempt = "";
-	} else if (letter === "backspace") {
-		console.log("handling backspace");
-		currentAttempt = currentAttempt.slice(0, currentAttempt.length - 1);
-		console.log("XXX cur", currentAttempt);
-	} else if (/^[a-z]$/.test(letter)) {
-		if (currentAttempt.length < 5) {
-			currentAttempt += letter;
-			console.log("current attempt", currentAttempt);
-		}
+	let letter = "";
+	console.log("handling keydow", e.target.innerText);
+	if (e.key) {
+		letter = e.key.toLowerCase();
+	} else {
+		letter = e.target.innerText.toLowerCase();
 	}
-	updateGrid();
+
+	console.log("letter is hahah", letter);
+	handleKey(letter);
 }
 
 function updateGrid() {
@@ -126,4 +141,32 @@ function drawCurrentAttempt(row: any, attempt: string) {
 
 		cell.classList.add("selected");
 	}
+}
+
+function handleKey(letter: string) {
+	if (letter === "enter") {
+		console.log("handling enter");
+		if (currentAttempt.length < 5) {
+			return;
+		}
+		if (!wordList.includes(currentAttempt)) {
+			let popup = document.getElementById("popup");
+			if (popup) {
+				popup.style.visibility = "visible";
+				return;
+			}
+		}
+		history.push(currentAttempt);
+		currentAttempt = "";
+	} else if (letter === "backspace" || letter === "delete") {
+		console.log("handling backspace");
+		currentAttempt = currentAttempt.slice(0, currentAttempt.length - 1);
+		console.log("XXX cur", currentAttempt);
+	} else if (/^[a-z]$/.test(letter)) {
+		if (currentAttempt.length < 5) {
+			currentAttempt += letter;
+			console.log("current attempt", currentAttempt);
+		}
+	}
+	updateGrid();
 }
