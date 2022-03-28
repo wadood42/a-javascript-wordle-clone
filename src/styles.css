@@ -2,6 +2,7 @@ body,
 html {
 	color: white;
 	font-size: 1em;
+	font-family: "Barlow Condensed", sans-serif;
 }
 
 * {
@@ -138,10 +139,10 @@ nav {
 }
 .content {
 	color: white;
-	width: 70%;
+	width: 50%;
 	margin: 0 auto;
 	height: 100vh;
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -157,8 +158,11 @@ nav {
 }
 .content-header h1 {
 	/* border: 1px solid green; */
+	line-height: 1.2em;
 	flex: 2;
 	text-align: center;
+	text-transform: uppercase;
+	font-size: 1.2em;
 }
 .close-modal {
 	/* border: 1px solid red; */
@@ -170,11 +174,77 @@ nav {
 	cursor: pointer;
 }
 
+.content-text {
+	/* border: 1px solid blue; */
+	width: 70%;
+	padding: 10px 0;
+	border-bottom: 1px solid grey;
+}
+.content-text p {
+	/* border: 1px solid red; */
+	margin-bottom: 14px;
+	font-size: 0.9em;
+}
+
+.examples {
+	/* border: 1px solid yellow; */
+	padding-top: 10px;
+	width: 70%;
+}
+.examples h4 {
+	/* border: 1px solid red; */
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.letters {
+	display: flex;
+	margin-bottom: 10px;
+	/* border: 1px solid green; */
+}
+
+.letters span {
+	border: 1px solid rgb(193, 193, 194);
+	width: 40px;
+	height: 40px;
+	margin: 2px;
+	text-align: center;
+	line-height: 40px;
+	display: block;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+.example-one,
+.example-two,
+.example-three {
+	margin-bottom: 20px;
+	/* border: 1px solid red; */
+}
+.example-three {
+	border-bottom: 1px solid grey;
+	padding-bottom: 10px;
+}
+.example-one span:first-child {
+	background-color: green;
+	border: none;
+}
+
+.example-two span:nth-child(2) {
+	background-color: #c9b458;
+	/* border: 1px solid yellow; */
+}
+
+.example-three span:nth-child(4) {
+	background-color: #86886a;
+}
+
 @media only screen and (max-width: 480px) {
 	.btn {
 		width: 28px;
 		height: 34px;
-		background-color: lightblue;
+		/* background-color: lightblue; */
 	}
 	.cell {
 		width: 50px;
@@ -182,6 +252,6 @@ nav {
 	}
 	.content {
 		width: 100%;
-		border: 1px solid blue;
+		/* border: 1px solid blue; */
 	}
 }
