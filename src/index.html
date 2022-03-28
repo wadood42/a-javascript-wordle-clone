@@ -12,8 +12,30 @@
 	</head>
 	<body>
 		<div id="container" class="container">
+			<div class="help-modal" id="help-modal">
+				<div class="content">
+					<div class="content-header">
+						<h1>how to play</h1>
+						<div id="close-modal" class="close-modal">
+							<span class="material-icons"> close </span>
+						</div>
+					</div>
+
+					<div class="content-text">
+						<p>Guess the WORDLE in six tries.</p>
+						<p>
+							Each guess must be a valid five-letter word. Hit the enter button
+							to submit.
+						</p>
+						<p>
+							After each guess, the color of the tiles will change to show how
+							close your guess was to the word.
+						</p>
+					</div>
+				</div>
+			</div>
 			<nav>
-				<span class="material-icons"> help_outline </span>
+				<span class="material-icons" id="help"> help_outline </span>
 				<h1 class="title">Wordle</h1>
 				<div class="icons">
 					<span class="material-icons"> insights </span>

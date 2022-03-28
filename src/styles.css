@@ -7,6 +7,7 @@ html {
 * {
 	padding: 0;
 	margin: 0;
+	box-sizing: border-box;
 }
 
 .container {
@@ -15,7 +16,9 @@ html {
 	background-color: black;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	gap: 20px;
+	/* justify-content: space-between; */
+	/* border: 1px solid red; */
 }
 
 .grid {
@@ -23,6 +26,7 @@ html {
 	margin: 0 auto;
 	/* border: 1px solid white; */
 
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -40,6 +44,11 @@ html {
 	margin: 4px;
 	height: 60px;
 	border: 1px solid rgb(110, 110, 110);
+	font-weight: bold;
+	font-size: 2em;
+	text-align: center;
+	line-height: 60px;
+	text-transform: uppercase;
 }
 
 nav {
@@ -103,26 +112,76 @@ nav {
 	cursor: pointer;
 }
 
-@media only screen and (max-width: 500px) {
+.selected {
+	animation-name: popIn;
+	animation-duration: 0.3s;
+}
+
+@keyframes popIn {
+	0% {
+		transform: scale(0.8);
+	}
+	40% {
+		transform: scale(1.1);
+	}
+}
+
+/* INSTRUCTIONS STYLE  */
+.help-modal {
+	background-color: black;
+	/* border: 1px solid red; */
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	position: absolute;
+	visibility: hidden;
+}
+.content {
+	color: white;
+	width: 70%;
+	margin: 0 auto;
+	height: 100vh;
+	border: 1px solid red;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	padding: 20px;
+}
+.content-header {
+	/* border: 1px solid blue; */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	/* padding: 10px; */
+}
+.content-header h1 {
+	/* border: 1px solid green; */
+	flex: 2;
+	text-align: center;
+}
+.close-modal {
+	/* border: 1px solid red; */
+	justify-self: right;
+	/* flex: 1; */
+	text-align: right;
+	font-weight: bold;
+	/* margin-right: 20px; */
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 480px) {
 	.btn {
-		width: 36px;
-		height: 45px;
-		/* background-color: lightblue; */
+		width: 28px;
+		height: 34px;
+		background-color: lightblue;
 	}
 	.cell {
 		width: 50px;
 		height: 50px;
 	}
-}
-
-@media only screen and (min-width: 375px) {
-	.btn {
-		width: 26px;
-		height: 30px;
-		/* background-color: lightblue; */
-	}
-	.cell {
-		width: 40px;
-		height: 40px;
+	.content {
+		width: 100%;
+		border: 1px solid blue;
 	}
 }
