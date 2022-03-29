@@ -38,7 +38,7 @@ function keyboardRow(letters: string, isLast: boolean) {
 
 	if (isLast) {
 		let btn = document.createElement("button");
-		btn.className = "btn";
+		// btn.className = "btn";
 		btn.classList.add("enter");
 		btn.textContent = "Enter";
 		btn.addEventListener("click", (e) => {
@@ -58,7 +58,7 @@ function keyboardRow(letters: string, isLast: boolean) {
 
 	if (isLast) {
 		let btn = document.createElement("button");
-		btn.className = "btn";
+		// btn.className = "btn";
 		btn.classList.add("delete");
 		// let span = document.createElement("span");
 		// span.className = "material-icons";
